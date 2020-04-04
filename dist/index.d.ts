@@ -4,9 +4,11 @@ declare enum STATUSES {
     LOADING = 1,
     DONE = 2
 }
+declare type Load = (props: StatusManager) => void;
 declare type Props = {
-    load: (props: StatusManager) => void;
-    useWindow: boolean;
+    load: Load;
+    spinner?: JSX.Element;
+    useWindow?: boolean;
     distance?: number;
 };
 declare type State = {
@@ -19,6 +21,9 @@ declare type StatusManager = {
 export default class InfiniteLoading extends React.Component<Props, State> {
     private node;
     private parent;
+    private load;
+    private spinner;
+    private useWindow;
     private distance;
     constructor(props: Props);
     componentDidMount(): void;

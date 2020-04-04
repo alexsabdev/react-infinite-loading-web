@@ -2,6 +2,8 @@ import * as React from 'react';
 
 const DISTANCE = 10;
 
+const spinner = <div>Loading...</div>;
+
 enum STATUSES {
   READY,
   LOADING,
@@ -16,6 +18,7 @@ type Load = (props: StatusManager) => void;
 
 type Props = {
   load: Load;
+  spinner?: JSX.Element,
   useWindow?: boolean;
   distance?: number;
 }
@@ -40,6 +43,8 @@ export default class InfiniteLoading extends React.Component<Props, State> {
 
   private load: Load;
 
+  private spinner: JSX.Element;
+
   private useWindow: boolean;
 
   private distance: number;
@@ -49,6 +54,7 @@ export default class InfiniteLoading extends React.Component<Props, State> {
     this.node = null;
     this.parent = null;
     this.load = this.props.load;
+    this.spinner = this.props.spinner || spinner;
     this.distance = this.props.distance || DISTANCE;
     this.useWindow = this.props.useWindow || false;
     this.state = {
@@ -90,7 +96,7 @@ export default class InfiniteLoading extends React.Component<Props, State> {
     if (this.state.status !== STATUSES.READY) return;
     if (this.getDistance() > this.distance) return;
     this.setStatus(STATUSES.LOADING);
-    this.props.load(this.statusManager);
+    this.load(this.statusManager);
   }
 
   private addEvents() {
@@ -114,9 +120,7 @@ export default class InfiniteLoading extends React.Component<Props, State> {
   render() {
     return (
       <div ref={(node: Node) => { this.node = node; }}>
-        {this.state.status === STATUSES.LOADING && (
-          <div>Loading...</div>
-        )}
+        {this.state.status === STATUSES.LOADING && this.spinner}
       </div>
     );
   }
