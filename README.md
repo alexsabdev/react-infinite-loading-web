@@ -94,7 +94,7 @@ import InfiniteLoading from 'react-infinite-loading-web';
 
 ### Increase the load distance
 
-Optionally, you can force the component to attempt to load sooner by increasing the minimum distance between the component and the bottom of the wrapper (default is `10 px`):
+Optionally, you can force the component to attempt to load sooner by increasing the minimum distance between the component and the bottom of the wrapper (default is `20 px`):
 
 ```
 ...

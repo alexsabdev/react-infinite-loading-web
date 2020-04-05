@@ -1,7 +1,7 @@
 {
   "private": false,
   "name": "react-infinite-loading-web",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "A light-weight infinite loading component for React-powered websites",
   "main": "./dist/index.min.js",
   "types": "./dist/index.d.ts",
@@ -32,7 +32,7 @@
   ],
   "dependencies": {
     "react": "^16.0.0",
-    "react-dom": "^16.0.0"
+    "react-dom": "^16.13.1"
   },
   "devDependencies": {
     "@types/node": "^13.11.0",

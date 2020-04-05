@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-const DISTANCE = 10;
+const DISTANCE = 20;
 
 const spinner = <div>Loading...</div>;
 
