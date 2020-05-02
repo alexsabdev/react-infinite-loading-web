@@ -27,7 +27,7 @@ type State = {
   status: STATUSES,
 }
 
-type StatusManager = {
+export type StatusManager = {
   loaded: () => void;
   done: () => void;
 }

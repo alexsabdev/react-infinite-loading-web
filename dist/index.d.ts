@@ -14,7 +14,7 @@ declare type Props = {
 declare type State = {
     status: STATUSES;
 };
-declare type StatusManager = {
+export declare type StatusManager = {
     loaded: () => void;
     done: () => void;
 };
